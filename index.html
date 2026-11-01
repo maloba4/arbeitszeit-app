@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#173c63"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Arbeitszeit"><meta name="description" content="Offline-Arbeitszeiterfassung mit Textdatei-Export"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/icon-180.png"><link rel="stylesheet" href="./style.css"><title>Arbeitszeiterfassung</title></head>
+<body><main class="app"><header><div class="eyebrow">MEINE ZEITERFASSUNG</div><h1>Arbeitszeit</h1><p id="today"></p></header>
+<section class="status" aria-live="polite"><div class="status-line"><span id="dot" class="dot"></span><strong id="status">Bereit zur Erfassung</strong></div><div id="since" class="since"></div></section>
+<section class="actions" aria-label="Zeiterfassung"><button id="start" class="start">▶ &nbsp; Anfangszeit</button><button id="end" class="end" disabled>■ &nbsp; Endzeit</button></section>
+<p id="notice" role="status" aria-live="polite"></p>
+<section class="records"><div class="section-head"><h2>Erfasste Arbeitszeiten</h2><span id="count"></span></div><div id="records" class="record-list"></div></section>
+<section class="tools"><button id="export" class="secondary">↥ &nbsp; Textdatei exportieren</button><p class="hint">Die Einträge werden auf diesem iPhone gespeichert. Exportiere regelmäßig eine Sicherheitskopie.</p></section>
+<footer><small>Offline nutzbar · Keine Anmeldung · Keine Datenübertragung</small></footer></main><script src="./app.js" defer></script></body></html>

@@ -1,0 +1,39 @@
+ARBEITSZEITERFASSUNG – INSTALLATION UNTER WINDOWS 11 UND IPHONE
+
+1. Das ZIP-Archiv auf Windows entpacken.
+2. Die Dateien auf einem HTTPS-Webserver veröffentlichen. Einfacher Weg: GitHub Pages.
+   a) Auf github.com ein kostenloses Konto erstellen bzw. anmelden.
+   b) Neues Repository erstellen, z. B. "arbeitszeit-app".
+   c) Alle Dateien aus dem entpackten Ordner inklusive "icons" hochladen
+      (index.html muss im Stammverzeichnis des Repositorys liegen).
+   d) Unter Settings > Pages > Build and deployment "Deploy from a branch"
+      und "main" / "(root)" wählen, dann Save.
+   e) Warten, bis die HTTPS-Adresse erscheint:
+      https://BENUTZERNAME.github.io/arbeitszeit-app/
+3. Diese Adresse auf dem iPhone in Safari öffnen.
+4. Safari: Teilen > Zum Home-Bildschirm (ggf. über Menü) > Hinzufügen.
+5. App über das neue Symbol starten. Einmal online laden, danach offline nutzbar.
+
+NUTZUNG
+- "Anfangszeit" speichert den Beginn sofort lokal.
+- "Endzeit" speichert Ende und Dauer. Die Buttons wechseln ihren Status.
+- "Textdatei exportieren" öffnet auf dem iPhone normalerweise das Teilen-Menü.
+  Dort "In Dateien sichern" wählen (lokal oder iCloud Drive).
+- In der Datei stehen Datum, Anfang, Ende und Dauer im Format HH:MM.
+- Auch eine laufende Erfassung übersteht das Schließen der App.
+- Die App unterstützt Zeiträume über Mitternacht.
+
+WICHTIG
+- Die Daten bleiben ausschließlich im lokalen Browser-/App-Speicher auf diesem
+  Gerät und werden NICHT an GitHub oder den Webserver gesendet.
+- Bei Löschung der Website-Daten, Deinstallation oder Wechsel des iPhones können
+  die lokalen Daten verloren gehen. Deshalb regelmäßig exportieren!
+- Die exportierte Textdatei ist eine Momentaufnahme und wird NICHT automatisch
+  weitergeschrieben. Für jeden neuen Export muss erneut die Taste gedrückt werden.
+- Die App hat bewusst keine Funktion zum Löschen oder Ändern von Einträgen.
+- Die App ist für private Zeiterfassung vorgesehen, nicht als manipulationssicheres
+  betriebliches Zeiterfassungssystem.
+- Die App benötigt HTTPS (oder localhost zum Testen); das direkte Öffnen von
+  index.html per Datei-Doppelklick ermöglicht keine zuverlässige Offline-PWA.
+- Test am Windows-PC optional mit Python: im Ordner `python -m http.server 8000`
+  und dann http://localhost:8000 im Browser öffnen.
