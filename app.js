@@ -74,3 +74,24 @@ $('export').addEventListener('click', async () => {
   $('notice').textContent='Textdatei zum Herunterladen bereitgestellt.';
 });
 if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+// PWA-Installation: Android/unterstützte Browser können einen Installationsdialog anbieten.
+// Auf iOS ist nur eine Anleitung möglich; Installation erfolgt durch den Benutzer.
+let deferredInstallPrompt = null;
+const installSection = $('install-section');
+const installGuide = $('install-guide');
+const installed = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+function updateInstallVisibility() { installSection.hidden = installed(); }
+window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); deferredInstallPrompt = event; updateInstallVisibility(); });
+window.addEventListener('appinstalled', () => { deferredInstallPrompt = null; installGuide.hidden = true; updateInstallVisibility(); });
+$('install').addEventListener('click', async () => {
+  if (deferredInstallPrompt) {
+    const prompt = deferredInstallPrompt;
+    deferredInstallPrompt = null;
+    try { await prompt.prompt(); await prompt.userChoice; } catch(e) { installGuide.hidden = false; }
+  } else {
+    installGuide.hidden = !installGuide.hidden;
+  }
+});
+$('close-guide').addEventListener('click', () => { installGuide.hidden = true; });
+updateInstallVisibility();
