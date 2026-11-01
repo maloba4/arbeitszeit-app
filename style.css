@@ -7,9 +7,9 @@
 .install-guide button { margin-top: 8px; }
 [hidden] { display: none !important; }
 .copyright {
-    margin-top: 30px;
+    margin-top: 0px;
     padding: 15px;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     color: #888;
 }
